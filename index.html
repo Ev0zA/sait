@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>П-Авто - Автосалон автомобилей с пробегом</title>
+    <style>
+        /* Сброс и базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Шапка */
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a1a1a;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #e6c200;
+        }
+
+        /* Секция преимуществ */
+        .advantages {
+            padding: 5rem 0;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .advantage-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .advantage-card i {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Каталог автомобилей */
+        .catalog {
+            padding: 5rem 0;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .car-card {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            height: 200px;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .car-info {
+            padding: 1.5rem;
+        }
+
+        .car-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b00;
+            margin-bottom: 1rem;
+        }
+
+        .car-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .car-features li {
+            margin-bottom: 0.3rem;
+            color: #666;
+        }
+
+        /* О компании */
+        .about {
+            padding: 5rem 0;
+            background: #f9f9f9;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* Контакты */
+        .contacts {
+            padding: 5rem 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .map {
+            height: 400px;
+            background-color: #f5f5f5;
+        }
+
+        /* Футер */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">П-Авто</div>
+            <nav>
+                <ul>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Надёжные автомобили с пробегом</h1>
+            <p>Более 500 проверенных автомобилей в наличии. Гарантия юридической чистоты и лучшие цены в регионе.</p>
+            <a href="#catalog" class="btn">Смотреть каталог</a>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Гарантия чистоты</h3>
+                    <p>Все автомобили проходят тщательную проверку на юридическую чистоту</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Тщательный отбор</h3>
+                    <p>Каждый автомобиль проверяется по 150 пунктам перед попаданием в каталог</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-tag"></i>
+                    <h3>Лучшие цены</h3>
+                    <p>Прозрачное ценообразование и возможность торга</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Выгодный трейд-ин</h3>
+                    <p>Честная оценка вашего автомобиля при обмене</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог -->
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <h2 class="section-title">Автомобили в наличии</h2>
+            <div class="cars-grid">
+                <!-- Автомобиль 1 -->
+                <div class="car-card">
+                    <div class="car-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="car-info">
+                        <h3 class="car-title">Toyota Camry 2018</h3>
+                        <div class="car-price">1 650 000 ₽</div>
+                        <ul class="car-features">
+                            <li><i class="fas fa-tachometer-alt"></i> 85 000 км</li>
+                            <li><i class="fas fa-gas-pump"></i> Бензин</li>
+                            <li><i class="fas fa-cog"></i> Автомат</li>
+                        </ul>
+                        <a href="#contacts" class="btn">Узнать подробности</a>
+                    </div>
+                </div>
+                <!-- Автомобиль 2 -->
+                <div class="car-card">
+                    <div class="car-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="car-info">
+                        <h3 class="car-title">Kia Sportage 2019</h3>
+                        <div class="car-price">1 450 000 ₽</div>
+                        <ul class="car-features">
+                            <li><i class="fas fa-tachometer-alt"></i> 75 000 км</li>
+                            <li><i class="fas fa-gas-pump"></i> Дизель</li>
+                            <li><i class="fas fa-cog"></i> Механика</li>
+                        </ul>
+                        <a href="#contacts" class="btn">Узнать подробности</a>
+                    </div>
+                </div>
+                <!-- Автомобиль 3 -->
+                <div class="car-card">
+                    <div class="car-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="car-info">
+                        <h3 class="car-title">Volkswagen Polo 2020</h3>
+                        <div class="car-price">950 000 ₽</div>
+                        <ul class="car-features">
+                            <li><i class="fas fa-tachometer-alt"></i> 45 000 км</li>
+                            <li><i class="fas fa-gas-pump"></i> Бензин</li>
+                            <li><i class="fas fa-cog"></i> Автомат</li>
+                        </ul>
+                        <a href="#contacts" class="btn">Узнать подробности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О компании П-Авто</h2>
+            <div class="about-content">
+                <div>
+                    <p>Автосалон "П-Авто" работает на рынке с 2015 года. За это время мы помогли тысячам клиентов найти свой идеальный автомобиль.</p>
+                    <p>Мы специализируемся на продаже автомобилей с пробегом от 1 до 7 лет, которые проходят тщательную проверку перед продажей.</p>
+                    <p>Наша миссия - сделать покупку подержанного автомобиля безопасной, простой и выгодной для каждого клиента.</p>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/500x300" alt="Автосалон П-Авто" style="width:100%; border-radius:5px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Автозаводская, д. 15</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Телефон</h3>
+                    <p>+7 (495) 123-45-67</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 9:00-20:00<br>Сб-Вс: 10:00-18:00</p>
+                </div>
+            </div>
+            <div class="map">
+                <!-- Здесь будет карта -->
+                <iframe src="https://yandex.ru/maps/-/CHSWq-MM" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Автосалон "П-Авто". Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Пример простой фильтрации (можно развить)
+        function filterCars() {
+            // Здесь можно добавить логику фильтрации автомобилей
+            alert('Функция фильтрации будет реализована в полной версии сайта');
+        }
+    </script>
+</body>
+</html>
