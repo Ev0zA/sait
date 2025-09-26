@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>П-Авто - Автосалон автомобилей с пробегом</title>
     <style>
-        /* Сброс и базовые стили */
+        
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +25,7 @@
             padding: 0 15px;
         }
 
-        /* Шапка */
+       
         header {
             background-color: #1a1a1a;
             color: white;
@@ -67,7 +67,7 @@
             color: #ffd700;
         }
 
-        /* Герой секция */
+        
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
             height: 100vh;
@@ -102,7 +102,7 @@
             background: #e6c200;
         }
 
-        /* Секция преимуществ */
+        
         .advantages {
             padding: 5rem 0;
             background: #f9f9f9;
@@ -134,7 +134,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Каталог автомобилей */
+        
         .catalog {
             padding: 5rem 0;
         }
@@ -189,7 +189,7 @@
             color: #666;
         }
 
-        /* О компании */
+       
         .about {
             padding: 5rem 0;
             background: #f9f9f9;
@@ -202,7 +202,7 @@
             align-items: center;
         }
 
-        /* Контакты */
+       
         .contacts {
             padding: 5rem 0;
         }
@@ -230,7 +230,7 @@
             background-color: #f5f5f5;
         }
 
-        /* Футер */
+        
         footer {
             background: #1a1a1a;
             color: white;
@@ -238,7 +238,7 @@
             text-align: center;
         }
 
-        /* Адаптивность */
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -265,7 +265,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка -->
+    
     <header>
         <div class="container header-container">
             <div class="logo">П-Авто</div>
@@ -280,7 +280,7 @@
         </div>
     </header>
 
-    <!-- Герой секция -->
+    
     <section class="hero">
         <div class="container hero-content">
             <h1>Надёжные автомобили с пробегом</h1>
@@ -289,7 +289,7 @@
         </div>
     </section>
 
-    <!-- Преимущества -->
+    
     <section id="advantages" class="advantages">
         <div class="container">
             <h2 class="section-title">Почему выбирают нас</h2>
@@ -318,12 +318,12 @@
         </div>
     </section>
 
-    <!-- Каталог -->
+   
     <section id="catalog" class="catalog">
         <div class="container">
             <h2 class="section-title">Автомобили в наличии</h2>
             <div class="cars-grid">
-                <!-- Автомобиль 1 -->
+                
                 <div class="car-card">
                     <div class="car-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
                     <div class="car-info">
@@ -337,7 +337,7 @@
                         <a href="#contacts" class="btn">Узнать подробности</a>
                     </div>
                 </div>
-                <!-- Автомобиль 2 -->
+                
                 <div class="car-card">
                     <div class="car-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
                     <div class="car-info">
@@ -351,7 +351,7 @@
                         <a href="#contacts" class="btn">Узнать подробности</a>
                     </div>
                 </div>
-                <!-- Автомобиль 3 -->
+                
                 <div class="car-card">
                     <div class="car-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
                     <div class="car-info">
@@ -369,7 +369,7 @@
         </div>
     </section>
 
-    <!-- О компании -->
+    
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">О компании П-Авто</h2>
@@ -386,7 +386,6 @@
         </div>
     </section>
 
-    <!-- Контакты -->
     <section id="contacts" class="contacts">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
@@ -408,13 +407,13 @@
                 </div>
             </div>
             <div class="map">
-                <!-- Здесь будет карта -->
+                
                 <iframe src="https://yandex.ru/maps/-/CHSWq-MM" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
+    
     <footer>
         <div class="container">
             <p>© 2024 Автосалон "П-Авто". Все права защищены.</p>
@@ -422,7 +421,7 @@
     </footer>
 
     <script>
-        // Плавная прокрутка к якорям
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -432,9 +431,8 @@
             });
         });
 
-        // Пример простой фильтрации (можно развить)
         function filterCars() {
-            // Здесь можно добавить логику фильтрации автомобилей
+            
             alert('Функция фильтрации будет реализована в полной версии сайта');
         }
     </script>
